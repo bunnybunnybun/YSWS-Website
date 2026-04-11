@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YSWS site</title>
+        <link rel="stylesheet" href="style2.css" />
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github-dark.min.css"
+        />
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+    </head>
+    <body>
+        <header><a class="title", href="index.html"><h1>YSWS Name</a></header>
+        <section>
+            <h2>This guide is still a work in progress!</h2>
+            <h1>Python GTK4 Tutorial</h1>
+            <p>The purpose of this guide is to be a beginner friendly introduction to making desktop apps with Python using GTK4. This guide only expects you to have a <em>very</em> basic understanding of programming in Python. If you don't understand everything, that's fine! Coding can feel very overwhelming at first, it's normal.</p>
+            <h2>Step one: creating the project</h2>
+            <p>First, make a folder for your project anywhere on your computer. Name it something that makes it clear what it's for. Inside the folder, create a file called main.py, this will be the main file of our app. The name of the file doesn't actually matter, but that's what I'll use in this tutorial. Open up the file in a text editor, and write this:</p>
+<pre><code>import gi
+            
+gi.require_version("Gtk", "4.0")
+from gi.repository import GLib, Gtk, Gdk
+</code></pre>
+            <p>This will simply try to import all of the libraries we will need throughout the project. Try running it by navigating in the terminal into the folder you created and running <code>python3 main.py</code>. You will most likely get errors because you don't actually have the libraries that you are trying to import installed on your system. If that's the case, then go to step two to install the libraries, then come back and run it again to see if it works.</p>
+            <p>However, if it runs without giving you any errors, then that means you already have all the required libraries installed and can skip step two! That said, you might want to update them anyways, but that's not required.</p>
+            <h2>Step two: installing the required libraries</h2>
+            <p>First of all, you will need python3. This is likely preinsalled on your system, but <a href="https://realpython.com/installing-python/">here's</a> the most comprehensive guide I could find on how to install it in case it's not preinstalled.</p>
+            <p>You will of course need GTK itself, but also PyGObject, which allows you to <em>use</em> GTK in your python application. You can install these through PyPI, Python's package manager. If you are on Linux, you also have the option of installing them through your operating system's package manager instead, which I recommend. Instructions for both methods can be found on <a href="https://pygobject.gnome.org/getting_started.html">the PyGObject website</a>.</p>
+            <p>Now run the program we created earlier to make sure that the libraries are installed correctly. If it doesn't output any errors, proceed to step 3!</p>
+            <h2>Step 3: Make a blank application window</h2>
+            <p>Ok, let's start by making a blank window. Add this to the main.py file after all of the imports:</p>
+<pre><code>class MyApplication(Gtk.Application):
+    def __init__(self):
+        super().__init__(application_id="com.example.ExampleWeatherApp")
+        GLib.set_application_name('ExampleApp')
+    
+    def do_activate(self):
+        window = Gtk.ApplicationWindow(application=self, title="My First App") # The title is what name will be shown for the application in the title bar of the window. Change this to whatever you want!
+        window.present()
+
+app = MyApplication()
+app.run() # You should generally make sure this line always remains at the end of your file.
+</code></pre>
+            <p>It's okay if you don't understand everything that we just wrote! Try saving and running the program, you should see a blank window appear.</p>
+            <h2>Step 4: Add some widgets!</h2>
+            <p>GTK apps are made by combining widgets. There are lots of types of widgets, such as buttons, text boxes, or containers. Containers are used for specifying where other widgets go, by placing said widgets inside a container widget. Some types of containers are grids, panes, etc. You can see a list of all possible widgets <a href="https://docs.gtk.org/gtk4/visual_index.html">here</a>.</p>
+            <p>The first widget you add <a title="Why? You can only put one widget directly in a window. So, that one widget must be a container widget, so that you can put more widgets inside of it.", class="dashed-underline">should always be a container widgetⓘ</a>, so you can put more widgets inside it. I usually start with the Box widget.</p>
+            <p>To create your box widget, right before the <code>window.present()</code> line in your code, add this line: <code>self.main_box = Gtk.Box()</code>. What did we just do? We created a variable called self.main_box, and set it to equal a box widget.<br>
+            Now, we've created a box, but we have to actually add it to the window. To do that, add this line right after the one we just added: <code>window.set_child(self.main_box)</code>.</p>
+            <p>Now run the program. You should see... That the window is still blank. Remember that the Box widget is just a container, all it does is help us specify where other widgets go. So... Add some more widgets inside it! How about a button? We can create it exactly like we did with the box. Just do <code>self.button = Gtk.Button()</code> instead of <code>self.main_box = Gtk.Box()</code>.<br>
+            Then, to add it to the box, do <code>self.main_box.append(self.button)</code>.</p>
+            <p>Your full code should now look something like this:</p>
+<pre><code>import gi
+gi.require_version("Gtk", "4.0")
+from gi.repository import GLib, Gtk, Gdk
+
+class MyApplication(Gtk.Application):
+    def __init__(self):
+        super().__init__(application_id="com.example.ExampleWeatherApp")
+        GLib.set_application_name('ExampleApp')
+    
+    def do_activate(self):
+        window = Gtk.ApplicationWindow(application=self, title="My First App")
+        self.main_box = Gtk.Box()
+        self.button = Gtk.Button()
+        self.main_box.append(self.button)
+        window.set_child(self.main_box)
+        window.present()
+
+app = MyApplication()
+app.run()
+</code></pre>
+            <p>Run the program, you should now see a button on the left side of the window! We'll customize the button soon, but first let's add a text element, called a Label. Add it just like you added the button, but replace <code>Gtk.Button()</code> with <code>Gtk.Label(label="Put whatever text you want here")</code>, and give it a different name.</p>
+            <p>If you add the label below the line where you added the button, it will appear <em>after</em> the button. If you put it above the line where you added the button, it will appear <em>before</em> the button.</p>
+            <p>Currently, widgets in the Box container are being placed horizontally. We can change the Box to be vertical by changing this line: <code>self.main_box = Gtk.Box()</code> to this: <code>self.main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)</code>. Try it and see what happens!</p>
+            <h2>Step 5: Customize!</h2>
+            <p>We've added widgets, but now I'll show you how to customize them.</p>
+        </section>
+        
+        <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+          document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightElement(block);
+          });
+        });
+        </script>
+    </body>
+</html>

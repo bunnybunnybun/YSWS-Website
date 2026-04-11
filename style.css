@@ -1,0 +1,24 @@
+body {
+    text-align: center;
+    background-color: seagreen;
+    margin: 0px;
+    font-size: 17px;
+}
+
+button {
+    border-radius: 15px;
+    padding: 10px;
+}
+
+header {
+    background: blue;
+    margin: 0px;
+}
+
+h1 {
+    margin: 0px;
+}
+
+.title {
+    color: black;
+}
