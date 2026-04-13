@@ -35,6 +35,21 @@ pre {
     margin-right: 20%;
 }
 
+button {
+    border-radius: 15px;
+    padding: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #324a5f;
+    border-color: #CCC9DC;
+    border-style: solid;
+    color: #CCC9DC;
+}
+
+button:hover {
+    background-color: #223a4f;
+}
+
 .title {
     color: #ccc9dc;
 }
