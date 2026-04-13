@@ -29,6 +29,12 @@ h1 {
     margin: 0px;
 }
 
+pre {
+    white-space: pre-wrap;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
 .title {
     color: #ccc9dc;
 }
