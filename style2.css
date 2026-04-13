@@ -1,12 +1,13 @@
 body {
     text-align: left;
-    background-color: seagreen;
+    background-color: #1b2a41;
     margin: 0px;
     font-size: 17px;
+    color: #ccc9dc;
 }
 
 section {
-    margin: 2%;
+    margin: 5%;
 }
 
 button {
@@ -15,13 +16,18 @@ button {
 }
 
 header {
-    background: blue;
+    background: #0c1821;
     margin: 0px;
     text-align: center;
+    padding: 10px;
 }
 
 h1 {
     margin: 0px;
+}
+
+a {
+    color: #aa99ff;
 }
 
 code {
@@ -34,8 +40,31 @@ code {
 .dashed-underline {
     text-decoration-line: underline;
     text-decoration-style: dashed;
+    color: #ccc9dc;
 }
 
 .title {
-    color: black;
+    color: #ccc9dc;
+}
+
+.hackatime-banner {
+    background-color: darkred;
+    padding: 10px;
+    border-color: red;
+    border-width: 5px;
+    border-radius: 10px;
+    border-style: solid;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.info-banner {
+    background-color: #324a5f;
+    padding: 10px;
+    border-color: #ccc9dc;
+    border-width: 2px;
+    border-radius: 10px;
+    border-style: solid;
+    margin: 10px;
+    font-size: 20px;
 }
