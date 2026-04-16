@@ -2,7 +2,7 @@ body {
     text-align: center;
     background-color: #1b2a41;
     margin: 0px;
-    font-size: 17px;
+    font-size: 18px;
     color: #ccc9dc;
 }
 
@@ -59,7 +59,7 @@ a {
     border-radius: 15px;
     padding: 1px;
     border-style: solid;
-    border-color: #ccc9dc;
+    border-color: #2a3f52;
     border-width: 3.5px;
 }
 
@@ -71,7 +71,7 @@ a {
     border-radius: 15px;
     padding: 1px;
     border-style: solid;
-    border-color: #ccc9dc;
+    border-color: #2a3f52;
     border-width: 3.5px;
 }
 
@@ -85,4 +85,8 @@ a {
 
 .guides-text {
     margin: 40px;
+}
+
+.guides-description {
+    margin: 10px;
 }

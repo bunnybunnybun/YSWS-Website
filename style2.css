@@ -2,7 +2,7 @@ body {
     text-align: left;
     background-color: #1b2a41;
     margin: 0px;
-    font-size: 17px;
+    font-size: 18px;
     color: #ccc9dc;
 }
 
@@ -17,12 +17,18 @@ button {
     margin-right: 2%;
     background-color: #324a5f;
     border-color: #CCC9DC;
-    border-style: solid;
+    border-style: outset;
+    border-width: 4px;
     color: #CCC9DC;
+    font-size: 18px;
 }
 
 button:hover {
     background-color: #223a4f;
+}
+
+button:active {
+    border-style: inset;
 }
 
 header {
@@ -72,6 +78,17 @@ code {
     background-color: #324a5f;
     padding: 10px;
     border-color: #ccc9dc;
+    border-width: 2px;
+    border-radius: 10px;
+    border-style: solid;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.tip {
+    background-color: #324a5f;
+    padding: 10px;
+    border-color: #d9dcc9;
     border-width: 2px;
     border-radius: 10px;
     border-style: solid;
