@@ -48,7 +48,7 @@ app.run() # You should generally make sure this line always remains at the end o
             <h2>Step 4: Add some widgets!</h2>
             <p>GTK apps are made by combining widgets. There are lots of types of widgets, such as buttons, text boxes, or containers. Containers are used for specifying where other widgets go, by placing said widgets inside a container widget. Some types of containers are grids, panes, etc. You can see a list of all possible widgets <a href="https://docs.gtk.org/gtk4/visual_index.html">here</a>.</p>
             <p>The first widget you add <a title="Why? You can only put one widget directly in a window. So, that one widget must be a container widget, so that you can put more widgets inside of it.", class="dashed-underline">should always be a container widgetⓘ</a>, so you can put more widgets inside it. I usually start with the Box widget.</p>
-            <p>To create your box widget, right before the <code>window.present()</code> line in your code, add this line: <code>self.main_box = Gtk.Box()</code>. What did we just do? We created a variable called self.main_box, and set it to equal a box widget.<br>
+            <p>To create your box widget, right before the <code>window.present()</code> line in your code, add this line: <code>self.main_box = Gtk.Box()</code>. What did we just do? We created a variable named self.main_box, and set it to equal a box widget.<br>
             Now, we've created a box, but we have to actually add it to the window. To do that, add this line right after the one we just added: <code>window.set_child(self.main_box)</code>.</p>
             <p>Now run the program. You should see... That the window is still blank. Remember that the Box widget is just a container, all it does is help us specify where other widgets go. So... Add some more widgets inside it! How about a button? We can create it exactly like we did with the box. Just do <code>self.button = Gtk.Button()</code> instead of <code>self.main_box = Gtk.Box()</code>.<br>
             Then, to add it to the box, do <code>self.main_box.append(self.button)</code>.</p>
@@ -78,6 +78,20 @@ app.run()
             <p>Currently, widgets in the Box container are being placed horizontally. We can change the Box to be vertical by changing this line: <code>self.main_box = Gtk.Box()</code> to this: <code>self.main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)</code>. Try it and see what happens!</p>
             <h2>Step 5: Customize!</h2>
             <p>We've added widgets, but now I'll show you how to customize them.</p>
+            <p>Let's start with the button. Try adding some text to it! You can do that by updating this line: <code>self.button = Gtk.Button()</code> to this: <code>self.button = Gtk.Button(label="Put whatever you want it to say!")</code></p>
+            <p>Both the text label and the button are touching each other, along with the sides of the window, with no gap. Generally it's nice to have a bit of spacing between elements. We can add that spacing through CSS (Cascading Style Sheets), which is the language that we use for changing the visual appearance of things in our app!</p>
+            <p>Create a new file called style.css. This is where we will put the css code. In this new file, try writing: </p>
+            <pre><code>button {
+    margin: 30px;
+}</code></pre>
+            <p>That will put 30 pixels of space on each side of the button. If you just wanted to put space on just one side of the button, you could do <code>margin-left</code> or <code>margin-top</code> etc for whichever side you want.</p>
+            <p>In order for it to actually work, you need to tell the app to use the css file. Near the top of the main.py file, right after the imports, add this:</p>
+            <pre><code>css_provider = Gtk.CssProvider()
+css_provider.load_from_path('style.css')
+Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)</code></pre>
+            <p>Remember to save both the files, and see if it worked.</p>
+            <p>We can also change the colors! Within the button section of the css file, add a new line and type this: <code>background-color: green;</code>, you can replace the color with whatever. If you need a more specific color, you can use a hex or rgb color code(<a href="https://htmlcolorcodes.com/">here is </a> a color picker for hex and rgb).</p>
+            
         </section>
         
         <script>
