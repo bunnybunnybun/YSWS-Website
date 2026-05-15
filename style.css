@@ -13,6 +13,14 @@ section {
 header {
     background: #0c1821;
     margin: 0px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    background: #0c1821;
+    margin: 0px;
     padding: 10px;
 }
 
@@ -76,4 +84,14 @@ button:active {
     border-width: 5px;
     padding: 10px;
     background-color: #324a5f;
+}
+
+.top-section {
+    margin-top: 2%;
+}
+
+.nav-link {
+    background-color: #324a5f;
+    padding: 5px;
+    margin: 5px;
 }

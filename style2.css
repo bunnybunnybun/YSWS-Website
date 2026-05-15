@@ -38,6 +38,13 @@ header {
     padding: 10px;
 }
 
+footer {
+    background: #0c1821;
+    margin: 0px;
+    padding: 10px;
+    text-align: center;
+}
+
 h1 {
     margin: 0px;
 }
