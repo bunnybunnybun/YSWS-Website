@@ -19,11 +19,16 @@ button {
     padding: 10px;
 }
 
+button:hover {
+    background-color: #223a4f;
+}
+
 header {
     background: #0c1821;
     margin: 0px;
-    text-align: center;
-    padding: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 footer {
@@ -44,6 +49,26 @@ a {
 
 .title {
     color: #ccc9dc;
+    font-size: 28px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.nav-link {
+    background-color: #324a5f;
+    border-radius: 15px;
+    padding: 7px;
+    margin: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #ccc9dc;
+    font-size: 24px;
+    text-decoration: none;
+    border-style: none;
+}
+
+.nav-link:active {
+    border-style: none;
 }
 
 .arrows-section {

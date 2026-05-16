@@ -44,10 +44,10 @@ button {
     margin-left: 2%;
     margin-right: 2%;
     background-color: #324a5f;
-    border-color: #CCC9DC;
+    border-color: #ccc9dc;
     border-style: outset;
     border-width: 4px;
-    color: #CCC9DC;
+    color: #ccc9dc;
     font-size: 18px;
 }
 
@@ -61,13 +61,36 @@ button:active {
 
 .title {
     color: #ccc9dc;
+    font-size: 28px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.nav-link {
+    background-color: #324a5f;
+    border-radius: 15px;
+    padding: 7px;
+    margin: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #ccc9dc;
+    font-size: 24px;
+    text-decoration: none;
+    border-style: none;
+}
+
+.nav-link:active {
+    border-style: none;
 }
 
 .faq {
     margin-top: 20px;
     margin-left: 15%;
     margin-right: 15%;
-    padding: 10px 2px 10px 2px;
+    padding: 10px
+        2px
+        10px
+        2px;
     border-radius: 20px;
     border-style: solid;
     border-color: #2a3f52;
@@ -88,10 +111,4 @@ button:active {
 
 .top-section {
     margin-top: 2%;
-}
-
-.nav-link {
-    background-color: #324a5f;
-    padding: 5px;
-    margin: 5px;
 }
